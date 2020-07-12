@@ -84,12 +84,7 @@ h3{
     
 }
 
-@media(min-width: 768px) and (max-width: 991px)
-{
-    
-}
-
-@media(min-width: 768px) and (max-width: 991px)
+@media(max-width: 767px)
 {
     .login{
         position: absolute;
@@ -104,8 +99,7 @@ h3{
 }
 @media(max-width:479px)
 {
-    .login{
-        
+    .login{        
         top: 50%;
         left: 50%;
         transform: translate(-50%,-50%);
