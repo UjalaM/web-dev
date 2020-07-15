@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        var img_array=['img/1.png', 'img/2.jfif', 'img/3.jpg', 'img/4.jfif', 'img/5.jpg', 
+                       'img/6.jfif', 'img/7.jfif', 'img/8.jfif', 'img/9.jfif', 'img/10.jfif'];
+        var idx = 0;
+        function change_img(){
+            var invalid = /[a-zA-Z!@#$%^&*]/;
+            var p = document.getElementById("ipt").value;
+            if(p.match(invalid)){
+                alert("Only numbers should be entered!!");
+            }
+            else{
+                document.getElementById('img_slide').src = img_array[idx];
+                idx++;
+                if (idx == img_array.length){
+                    idx = 0; 
+                }
+                setTimeout("change_img()", p);
+            }
+        }
+
+        function op(value){
+            var invalid = /[a-zA-Z!@#$%^&*]/;
+            var re="";
+            var x1 = document.getElementById("n1").value;
+            var x2 = document.getElementById("n2").value;
+            if(x1.match(invalid)){
+                alert("Only numbers should be entered!!");
+            }
+            else{
+                if(x2.match(invalid)){
+                    alert("Only numbers should be entered!!");
+                }
+                else{
+                    re=x1 + value + x2;
+                    document.getElementById("result").value = eval(re);
+                }
+            } 
+        }
+
+        function validate(){
+            var invalid = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})$/
+            var a = document.getElementById("email").value
+            if(a.match(invalid)){
+                document.getElementById("email").style.background = '#188600';
+            }
+            else{
+                document.getElementById("email").style.background = '#FB0303';
+            }
+        }
+    </script>
+    <body>
+        <h2 style="margin-left: 120px;margin-top: 50px;">JavaScripts Assignment</h2>
+        <div class="container">
+            <div class="row" id="con1">
+                <h3>Corona Warriors</h3>
+                <div class="col-md-6 col-lg-6 col-sm-12">
+                     <input id="ipt" type="text" placeholder="Enter time in milisecond(ms)">
+                     <button type="submit" class="btn btn-success" onclick="change_img()">Enter</button>
+                </div>
+
+                <div class="col-md-6 col-lg-6 col-sm-12">
+                    <img src="img/1.png" id="img_slide">                   
+               </div>
+            </div>
+        </div>
+        <div style="margin-top: 20px; height: 150px;" class="container">
+            <div class="row" id="con2" style="margin-bottom: 20px;">
+                <h3 style="margin-bottom:50px;">Arithematic Operations</h3>
+                <div id="oper" class="col-md-6 col-lg-6 col-sm-12">
+                    <input id="n1" type="text" placeholder="Enter first number">            
+                    <input id="n2" type="text" placeholder="Enter second number"> 
+                    <input style="width: 60px; height: 40px; text-align: center;" type="text" id="result">
+                </div>
+                <div class="col-md-6 col-lg-6 col-sm-12" style="margin-bottom: 20px;">
+                    <button class="btn btn-success" onclick="op('+')">Add</button>
+                    <button class="btn btn-success" onclick="op('-')">Sub</button>
+                    <button class="btn btn-success" onclick="op('*')">Multiply</button>
+                    <button class="btn btn-success" onclick="op('/')">Divide</button>   
+                </div>    
+            </div>
+        </div>
+        
+        <div class="container" id="con3" style="padding: 30px;">
+            <h3>E-mail format Verification</h3><br>
+            <div class="row col-lg-12 col-md-12 col-sm-12">
+                <input type="text" style="color: white; background :red; width: 300px;" id="email" oninput="validate()">
+            </div>
+        </div>
+    </body>
+</head>
+</html>    
