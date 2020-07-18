@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Product Catalog</title>
+    </head>
+    <body>
+        <form action="product_catalog.php" method="POST">
+            <table>
+                <tr>
+                    <td>Product Id</td>
+                    <td>
+                        <input type="text" name="id">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Product Name</td>
+                    <td>
+                        <input type="text" name="name">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Product Price</td>
+                    <td>
+                        <input type="text" name="price">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Product Description</td>
+                    <td>
+                        <input type="text" name="descp">
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type="submit" value="ADD">
+                    </td>
+                </tr>
+            </table>
+        </form>
+        <br>
+        <form action="product_print.php">
+            <input type="submit" value="Print Products">
+        </form>
+    </body>
+</html>
